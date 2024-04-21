@@ -1,0 +1,200 @@
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7e8ea; /* Cor de fundo rosa */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.envelope {
+    width: 90%;
+    max-width: 500px; /* Tamanho máximo aumentado */
+    height: 80vh; /* Altura aumentada */
+    position: relative;
+    perspective: 1000px;
+    background: linear-gradient(135deg, #ff7eb9, #ff4f8b); /* Gradiente rosa */
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra */
+    overflow: hidden; /* Esconder overflow das abas */
+}
+
+.flap-front,
+.flap-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: transform 0.8s ease-in-out; /* Ajuste da velocidade da animação */
+}
+
+.flap-front {
+    transform-origin: top;
+    transform: rotateX(0deg);
+    border-radius: 0 0 15px 15px; /* Apenas na parte inferior */
+}
+
+.flap-back {
+    transform-origin: bottom;
+    transform: rotateX(-90deg);
+    border-radius: 15px 15px 0 0; /* Apenas na parte superior */
+}
+
+.message {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco opaco */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    overflow-y: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.message h1 {
+    color: #ff4f8b; /* Cor de texto rosa */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.message p {
+    color: #333; /* Cor de texto cinza escuro */
+    line-height: 1.6;
+}
+
+/* Estilo para os corações */
+.heart {
+    position: absolute;
+    width: 30px; /* Tamanho dos corações aumentado */
+    height: 30px; /* Tamanho dos corações aumentado */
+    background-color: #ff4f8b; /* Cor de coração rosa */
+    clip-path: polygon(
+        50% 15%, 
+        100% 60%, 
+        75% 80%, 
+        50% 100%, 
+        25% 80%, 
+        0% 60%
+    );
+    animation: hearts-rising 2s linear forwards; /* Ajuste da velocidade da animação */
+}
+
+/* Animação dos corações */
+@keyframes hearts-rising {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-150%); /* Altura de subida aumentada */
+        opacity: 0;
+    }
+}
+
+/* Posicionamento dos corações */
+.heart1 {
+    top: -30px; /* Posição inicial ajustada */
+    left: 10%;
+}
+
+.heart2 {
+    top: -30px; /* Posição inicial ajustada */
+    left: 40%;
+}
+
+.heart3 {
+    top: -30px; /* Posição inicial ajustada */
+    left: 70%;
+}
+
+.envelope-opened .flap-front {
+    transform: rotateX(90deg);
+}
+
+.envelope-opened .message {
+    opacity: 1;
+    overflow-y: hidden; /* Esconder a barra de rolagem */
+}
+
+.image {
+    position: absolute;
+    max-width: 150px; /* Largura máxima */
+    bottom: 20px; /* Posição em relação ao fundo */
+}
+
+.image1 {
+    position: absolute;
+    max-width: 200px; /* Largura máxima */
+    bottom: 50px; /* Posição em relação ao fundo */
+    left: 20px; /* Posição da primeira imagem */
+    transform: rotate(-3deg); /* Rotação leve */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+    border: 5px solid #ccc; /* Adiciona uma borda */
+    border-radius: 10px; /* Borda arredondada */
+}
+
+.image2 {
+    position: absolute;
+    max-width: 200px; /* Largura máxima */
+    bottom: 70px; /* Posição em relação ao fundo */
+    right: 20px; /* Posição da segunda imagem */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+    border: 5px solid #ccc; /* Adiciona uma borda */
+    border-radius: 10px; /* Borda arredondada */
+}
+
+.hearts-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.hearts {
+    width: 20px; /* Tamanho do coração */
+    height: 20px; /* Tamanho do coração */
+    background-color: red; /* Cor do coração */
+    clip-path: polygon(
+        50% 15%, 
+        100% 60%, 
+        75% 80%, 
+        50% 100%, 
+        25% 80%, 
+        0% 60%
+    ); /* Formato do coração */
+    position: absolute;
+}
+
+.heart:nth-child(1) {
+    top: 50px;
+    left: 50px;
+}
+
+.heart:nth-child(2) {
+    top: 100px;
+    left: 100px;
+}
+
+.heart:nth-child(3) {
+    top: 150px;
+    left: 150px;
+}
+
+.highlight {
+    font-size: 24px; /* Tamanho maior para destacar */
+}
+
+.highlight1 {
+    font-size: 15px; /* Tamanho maior para destacar */
+}
+
+.highlight2 {
+    font-size: 15px; /* Tamanho maior para destacar */
+}
